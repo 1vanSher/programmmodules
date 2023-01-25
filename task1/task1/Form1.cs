@@ -68,7 +68,7 @@ namespace task1
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Error: {ex}");
+                MessageBox.Show($"Ошибка: {ex}");
             }
         }
 
