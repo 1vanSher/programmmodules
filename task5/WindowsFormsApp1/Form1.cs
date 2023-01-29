@@ -34,5 +34,10 @@ namespace WindowsFormsApp1
             string result = string.Join(" ", reverse);
             listBox1.Items[index] = result;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Add(textBox1.Text);
+        }
     }
 }
