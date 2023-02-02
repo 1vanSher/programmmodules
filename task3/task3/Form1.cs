@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Windows.Forms;
 
 namespace task3
@@ -25,7 +26,7 @@ namespace task3
 
         }
 
-        public int Factorial(int fak)
+        public BigInteger Factorial(int fak)
         {
             if (fak == 1) return 1;
 
