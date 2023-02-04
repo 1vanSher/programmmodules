@@ -40,11 +40,11 @@ namespace task8
 
     public class SalaryEmployees
     {
-        private string name;
-        private string surname;
-        private string patronymic;
-        private string post;
-        private int salary;
+        private string name { get; set; }
+        private string surname { get; set; }
+        private string patronymic { get; set; }
+        private string post { get; set; }
+        public int salary;
 
         public SalaryEmployees(string Name, string Surname, string Patronymic, string Post, int Salary)
         {
