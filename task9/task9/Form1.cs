@@ -19,18 +19,25 @@ namespace task9
         List<basic> volume = new List<basic>();
         List<basic> res = new List<basic>();
         private void button1_Click(object sender, EventArgs e)
-        { 
-            volume.Add(new basic(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToDouble(textBox3.Text)));
-            listBox1.Items.Add($"{textBox1.Text} {textBox2.Text} {textBox3.Text}");
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
+        {
+            try
+            {
+                volume.Add(new basic(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToDouble(textBox3.Text)));
+                listBox1.Items.Add($"{textBox1.Text} {textBox2.Text} {textBox3.Text}");
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-            if (listBox1.SelectedItem != null) 
+            try
             {
                 string[] arr = listBox1.SelectedItem.ToString().Split(' ');
                 double result = basic.volume(Convert.ToDouble(arr[0]), Convert.ToDouble(arr[1]), Convert.ToDouble(arr[2]));
@@ -39,25 +46,44 @@ namespace task9
                 textBox4.Text = "";
                 comboBox1.Text = "";
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (listBox1.SelectedItem != null) 
+            {
+                
+            }
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            double result = 0;
-            string[] arr = listBox2.SelectedItem.ToString().Split(' ');
-            if (Convert.ToDouble(arr[1]) == 1)
+            try
             {
-                 result = Convert.ToDouble(arr[2]) * 0.3;
-            }else if(Convert.ToDouble(arr[1]) == 2)
-            {
-                 result = Convert.ToDouble(arr[2]) * 0.6;
-            }else if (Convert.ToDouble(arr[1]) == 3)
-            {
-                 result = Convert.ToDouble(arr[2]);
+                double result = 0;
+                string[] arr = listBox2.SelectedItem.ToString().Split(' ');
+                if (Convert.ToDouble(arr[1]) == 1)
+                {
+                    result = Convert.ToDouble(arr[2]) * 0.3;
+                }
+                else if (Convert.ToDouble(arr[1]) == 2)
+                {
+                    result = Convert.ToDouble(arr[2]) * 0.6;
+                }
+                else if (Convert.ToDouble(arr[1]) == 3)
+                {
+                    result = Convert.ToDouble(arr[2]);
+                }
+                textBox6.Text = Convert.ToString(result / Convert.ToInt32(textBox5.Text)) + " помесятятся в базовом объеме";
+                textBox5.Text = "";
             }
-            textBox6.Text = Convert.ToString(result / Convert.ToInt32(textBox5.Text)) + " помесятятся в базовом объеме";
-            textBox5.Text = "";
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
         }
     }
