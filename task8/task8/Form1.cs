@@ -19,11 +19,18 @@ namespace task8
         List<SalaryEmployees> salary = new List<SalaryEmployees>();
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] arr = textBox1.Text.Split(' ');
-            salary.Add(new SalaryEmployees(arr[0], arr[1], arr[2], comboBox1.Text, Convert.ToInt32(textBox2.Text)));
-            textBox1.Text = "";
-            comboBox1.Text = "";
-            textBox2.Text = "";
+            try
+            {
+                string[] arr = textBox1.Text.Split(' ');
+                salary.Add(new SalaryEmployees(arr[0], arr[1], arr[2], comboBox1.Text, Convert.ToInt32(textBox2.Text)));
+                textBox1.Text = "";
+                comboBox1.Text = "";
+                textBox2.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

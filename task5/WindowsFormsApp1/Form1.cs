@@ -24,15 +24,23 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int index = listBox1.SelectedIndex;
-            string str = (string)listBox1.Items[index];
-            string[] reverse = str.Split(new char[] { ' ' });
-            string item = "";
-            item = reverse[reverse.Length - 1];
-            reverse[reverse.Length - 1] = reverse[0];
-            reverse[0] = item;
-            string result = string.Join(" ", reverse);
-            listBox1.Items[index] = result;
+            try
+            {
+                int index = listBox1.SelectedIndex;
+                string str = (string)listBox1.Items[index];
+                string[] reverse = str.Split(new char[] { ' ' });
+                string item = "";
+                item = reverse[reverse.Length - 1];
+                reverse[reverse.Length - 1] = reverse[0];
+                reverse[0] = item;
+                string result = string.Join(" ", reverse);
+                listBox1.Items[index] = result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
